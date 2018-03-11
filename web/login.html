@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="materialize/css/materialize.css"> 
+    <link rel="stylesheet" href="styles/main.css">   
+</head>
+<body>
+    
+    <div class="center-align" style="width: 200px;margin-right: auto;margin-left: auto;">
+        <h4>LOGIN TEST</h4>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="username" class="login-form">
+                <label for="username">Username</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="password" id="password" class="login-form">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <a id="login-btn" class="btn green">LOGIN</a>
+    </div>
+        
+
+    
+    <!--PERSONAL SCRIPTS-->
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/xhrConnection.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="materialize/js/materialize.js"></script>
+    
+    <script>
+        /*$(document).ready(function () {
+           console.log("THE DOC IS READY");
+            login();
+        });
+        
+        function login(){
+            $("#login-btn").click((e) => {
+                let user = $("#username").val();
+                let pw = $("#password").val();
+                let data = {
+                    username: user,
+                    password: pw
+                }
+                console.log(data);
+                if(!validateJSON(data)){
+                    xhrConnection(data,"Login");
+                }else{
+                    console.log("JSON IS EMPTY BRUH");
+                }
+                
+                e.preventDefault();
+            });
+        }*/
+    </script>
+    
+</body>
+</html>
