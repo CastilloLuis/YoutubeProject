@@ -4,83 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <title>SIGN UP</title>
-    <link rel="stylesheet" href="materialize/css/materialize.css">     
+    <link rel="stylesheet" href="materialize/css/materialize.css">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
-    
-    <div class="center-align" style="margin-left: auto; margin-right: auto; width: 300px;">
-        <h4>SIGN UP TEST</h4>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container" style="border: 1px solid red">
         <div class="row">
-            <div class="input-field">
-                <input type="text" id="name">
-                <label for="name">Name</label>
+            <div class="col s3" style="padding: 0px 0px;">
+                <div id="image-div-signup">
+
+                </div>
+            </div>
+            <div class="col s9" style="padding: 0px 0px;">
+
+                <div id="">
+                    <h4 style="font-weight: 500; margin-right: 10px;" class="right-align">SIGN UP</h4>
+                </div>
+                <hr/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-field">
+                                <input type="text" id="name" class="signup-form">
+                                <label for="name">Name</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-field">
+                                <input type="text" id="lastname" class="signup-form">
+                                <label for="lastname">Last name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-field">
+                                <input type="text" id="email" class="signup-form">
+                                <label for="email" placeholder="tucorreo@ejemplo.com">Correo electrónico</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-field">
+                                <input type="text" id="username" class="signup-form">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-field">
+                                <input type="password" id="password" class="signup-form">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-field">
+                                <textarea class="materialize-textarea signup-form" id="bio" cols="23" rows="8"></textarea>
+                                <label for="bio">Biography</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="row">
+                        <div class="col">
+                            <div class="input-field">
+                                Profile Picture:
+                                <input type="file" id="file">
+                            </div>
+                        </div>
+                    </div>-->
+                    <a id="signup-btn" class="btn green">SIGN UP!</a>
+                    <br/>
+                    <br/>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="lastname">
-                <label for="lastname">Apellido</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="email">
-                <label for="email" placeholder="tucorreo@ejemplo.com">Correo electrónico</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="username">
-                <label for="username">Username</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="password">
-                <label for="password">Contraseña</label>
-            </div>
-        </div>
-        <a id="signup-btn" class="btn green">SIGN UP!</a>
     </div>
+
+
+
+
+
+
 
     <!--Personal scripts-->
     <script src="scripts/jquery.js"></script>
     <script src="scripts/xhrConnection.js"></script>
     <script src="scripts/main.js"></script>
-    <script src="materialize/js/materialize.js"></script>    
-    
-    <script>
-        $(document).ready(function() {
-            console.log("THE DOC IS READY");
-            signUp();
-        });
+    <script src="materialize/js/materialize.js"></script>
 
-        function signUp() {
-            $("#signup-btn").click((e) => {
-                let name = $("#name").val();
-                let lastname = $("#lastname").val();
-                let email = $("#email").val();
-                let user = $("#username").val();
-                let pw = $("#password").val();
-                let data = {
-                    name: name,
-                    lastname: lastname,
-                    email: email,
-                    username: user,
-                    password: pw
-                }
-                console.log(data);
-                if(!validateJSON(data)){
-                    xhrConnection(data,"SignUp");
-                }else{
-                    console.log("JSON IS EMPTY BRUH");
-                }                
-                e.preventDefault;
-            })
-        }
-
-    </script>
 </body>
 
 </html>

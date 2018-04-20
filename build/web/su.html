@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="materialize/css/materialize.css">
+    <link rel="stylesheet" href="styles/material-icons.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div class="container" style="width: 40%;">
+        <div id="signup-div" class="center-align">
+            <h4 style="padding: 30px 30px; font-weight: 500;">
+                <i class="material-icons prefix">lock</i>Log in</h4>
+            <i class="material-icons login-icons">music_video</i>
+            <i class="material-icons login-icons">movie</i>
+            <i class="material-icons login-icons">music_note</i>
+        </div>
+        <div class="center-align">
+            <br/>
+            <img src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/user-male-circle-blue-512.png" width="20%">
+            <br/>
+            <input type="file" id="myfile">
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <div class="input-field">
+                    <i class="material-icons prefix left">person</i>
+                    <input type="text" class="form-control signup-form" id="name">
+                    <label for="name">NAME</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix left">person_outline</i>
+                    <input type="text" class="form-control signup-form" id="lastname">
+                    <label for="name">LASTNAME</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix left">email</i>
+                    <input type="text" class="form-control signup-form" id="email">
+                    <label for="name">E-MAIL</label>
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="input-field">
+                    <i class="material-icons prefix left">account_circle</i>
+                    <input type="text" class="form-control signup-form" id="username">
+                    <label for="name">USERNAME</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix">lock</i>
+                    <input type="password" class="form-control signup-form" id="password">
+                    <label for="password">PASSWORD</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix">create</i>
+                    <textarea type="text" class="materialize-textarea signup-form" id="bio"></textarea>
+                    <label for="bio">BIOGRAPHY</label>
+                </div>
+            </div>
+        </div>
+        <div class="center-align">
+            <a href="#" class="btn indigo waves-effect waves-light">SIGN UP</a>
+        </div>
+        <div class="right-align" style="padding: 4% 4%;">
+            <p>Do you already have an account?
+                <a id="signup-btn" style="font-weight: bold;">Log in!</a>
+            </p>
+        </div>
+    </div>
+
+    <!--Personal scripts-->
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/xhrConnection.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="materialize/js/materialize.js"></script>
+
+</body>
+
+</html>

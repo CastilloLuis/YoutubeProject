@@ -21,62 +21,64 @@ import org.json.JSONObject;
 import DBManager.DBConnection;
 import DBManager.PropsManager;
 import DBManager.passwordEncrypt;
+import Proxy.SaveAttr;
 
 @WebServlet("/LoginSv")
 public class Login extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
-    protected DBConnection con;
     protected JSONObject myjson;
-    private static PropsManager myProps = null; //WE DONT NEED TO INSTANCE IT
-
-    public Login() {
-        super();
-    }
-
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
-        
-    }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         myjson = new JSONObject(req.getReader().lines().collect(Collectors.joining(System.lineSeparator())));
 
-        validLogin(con.getConnection(), myjson, req, res);
+        validLogin(DBConnection.getConnection(), myjson, req, res);
 
     }
 
     public void validLogin(Connection myConnection, JSONObject myjson, HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         res.setContentType("application/json");
+        PropsManager myprops = PropsManager.getInstance();
         PrintWriter out = res.getWriter();
         PreparedStatement mySt = null;
         JSONObject myjsonr = new JSONObject();
         passwordEncrypt myhash = new passwordEncrypt();
         String encryptedpw = null;
-        String selectQuery = myProps.getProps().getProperty("loginselect");
-
+        String loginQuery = myprops.getProps("loginselect");
+        HttpSession mySession;
         try {
             encryptedpw = myhash.getMD5(myjson.getString("password")); //encrypt the password
-            mySt = myConnection.prepareStatement("SELECT * FROM app_user WHERE username=? AND password=?");
+            mySt = myConnection.prepareStatement(loginQuery);
             mySt.setString(1, (String) myjson.get("username"));
             mySt.setString(2, encryptedpw);
             ResultSet rs = mySt.executeQuery(); //exeuteQuery cause it will return if a row exits or no
+            SaveAttr saveAttr = new SaveAttr();
             if (rs.next()) {
-                if (checkUserType(myConnection, rs.getString("email"), rs.getInt("type_id"))) {
-                    System.out.println("SI ES ADMIN");
-                } else {
-                    //System.out.println("NO ES ADMIN");
-                    //the register exists, we store the values
                     String user = myjson.getString("username");
-                    String pw = myjson.getString("password");
-                    //we create the SESSION with the username founded
-                    HttpSession mySession = req.getSession();
-                    //mySession.setAttribute("username", user); //we store the value of the user that has successfully login
-                    myjsonr.put("success", true).put("url", "user/page1.html").put("message", "Login successful");
+                    String id = rs.getString("id_user");                
+                if (checkUserType(rs.getInt("type_id"))) {
+                    System.out.println("SI ES ADMIN");
+                    mySession = req.getSession();
+                    // se supone que aqui guardo proxy
+                    saveAttr.saveAttr(mySession, "username", user);
+                    saveAttr.saveAttr(mySession, "id", id);
+                    // se supone que aqui guardo proxy
+                    myjsonr.put("success", true).put("isadmin",200).put("username",user).put("id",id).put("url", "user/user-index.html").put("message", "Login successful");                    
+                    System.out.println("EL VALUE DE ATTR ES:->"+mySession.getAttribute("username"));
+                    System.out.println("EL VALUE DE ATTR ES:->"+mySession.getAttribute("id"));
+                } else {
+                    System.out.println("NO ES ADMIN");
+                    mySession = req.getSession();
+                    // se supone que aqui guardo proxy
+                    saveAttr.saveAttr(mySession, "username", user);
+                    saveAttr.saveAttr(mySession, "id", id);
+                    // se supone que aqui guardo proxy
+                    System.out.println("EL VALUE DE ATTR ES:->"+mySession.getAttribute("username"));
+                    System.out.println("EL VALUE DE ATTR ES:->"+mySession.getAttribute("id"));
+                    myjsonr.put("success", true).put("isadmin",404).put("username",user).put("id",id).put("url", "user/user-index.html").put("message", "Login successful");
                 }
 
             } else {
-                myjsonr.put("success", false).put("url", "index.html").put("message", "You are not registered");
+                myjsonr.put("success", false).put("isadmin",404).put("url", "index.html").put("message", "You are not registered");
             }
 
             out.print(myjsonr.toString());
@@ -86,8 +88,7 @@ public class Login extends HttpServlet {
         }
     }
 
-    public boolean checkUserType(Connection myConnection, String email, int type_id) {
-        PreparedStatement mySt = null;
+    public boolean checkUserType(int type_id) {
         boolean isAdmin = false;
         isAdmin = ((type_id == 1) ? true : false);
         return isAdmin;

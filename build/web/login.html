@@ -5,59 +5,47 @@
     <title>LOGIN</title>
     <link rel="stylesheet" href="materialize/css/materialize.css"> 
     <link rel="stylesheet" href="styles/main.css">   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     
-    <div class="center-align" style="width: 200px;margin-right: auto;margin-left: auto;">
-        <h4>LOGIN TEST</h4>
-        <div class="row">
+    <div class="center-align action-div container" style="width: 30%; margin-right: auto; margin-left: auto;">
+        <div id="login-div">
+            <h4 style="padding: 30px 30px; font-weight: 500;"><i class="material-icons prefix">lock</i>Log in</h4>
+            <i class="material-icons login-icons">music_video</i>
+            <i class="material-icons login-icons">movie</i>
+            <i class="material-icons login-icons">music_note</i>
+        </div>
+        <br/>
+        <div class="row container">
             <div class="input-field">
+                <i class="material-icons prefix left">account_box</i>
                 <input type="text" id="username" class="login-form">
                 <label for="username">Username</label>
             </div>
         </div>
-        <div class="row">
+        <div class="row container">
             <div class="input-field">
+                <i class="material-icons prefix left">lock</i>
                 <input type="password" id="password" class="login-form">
                 <label for="password">Password</label>
+                <p class="right-align">Forgot <a href="#" style="font-weight: bold;">password?</a></p>
             </div>
         </div>
-        <a id="login-btn" class="btn green">LOGIN</a>
+        <div style="display: inline-block">
+        <a id="login-btn" class="btn green waves-effect left-align" style="border-radius: 50px;"><span style="padding: 10px 10px;">LOGIN</span></a><br/><br/>
+        <p class="right-align">Don't have an account? <a href="#" style="font-weight: bold;">Sign up!</a></p>
+        </div>
+        <br/><br/>
     </div>
         
 
-    
     <!--PERSONAL SCRIPTS-->
     <script src="scripts/jquery.js"></script>
     <script src="scripts/xhrConnection.js"></script>
     <script src="scripts/main.js"></script>
     <script src="materialize/js/materialize.js"></script>
-    
-    <script>
-        /*$(document).ready(function () {
-           console.log("THE DOC IS READY");
-            login();
-        });
-        
-        function login(){
-            $("#login-btn").click((e) => {
-                let user = $("#username").val();
-                let pw = $("#password").val();
-                let data = {
-                    username: user,
-                    password: pw
-                }
-                console.log(data);
-                if(!validateJSON(data)){
-                    xhrConnection(data,"Login");
-                }else{
-                    console.log("JSON IS EMPTY BRUH");
-                }
-                
-                e.preventDefault();
-            });
-        }*/
-    </script>
+
     
 </body>
 </html>

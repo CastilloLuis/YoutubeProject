@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <!-- MATERIALIZE CSS-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../materialize/css/materialize.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/material-icons.css">
+    <!-- FONT AWESOME -->
+    <!-- LAST VERSION -->
+</head>
+
+<body class="grey lighten-5">
+    <div id="user-navbar" class="">
+        <h6 style="position: fixed; padding: 10px 60px; font-size: 20px; font-weight:bold;" class="cyan darken-1"><i class="material-icons left">filter_hdr</i>TRIPPY TUBE</h6>
+        <!-- menu for side nav bar -->
+        <a href="#" data-target="slide-out" class="sidenav-trigger yellow-text" id="sidebar-btn" style="position: fixed; padding: 12px 15px;">
+            <i class="material-icons yellow-text" style="display: inline-block; position: absolute; font-size: 40px;">menu</i>
+        </a>        
+        <ul class="right-align">
+            <li class="">
+                <a class="waves-effect waves-light btn modal-trigger" href="#search-modal">SEARCH</a>
+
+            </li>
+            <li>
+                <a id="user-a"></a>
+                <i class="material-icons right">account_circle</i>
+            </li>
+            <li>
+                <a onclick="logout()" id="logout-a">LOG OUT
+                    <i class="material-icons right">exit_to_app</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <!-- nav bar -->
+    <ul id="slide-out" class="sidenav grey lighten-2" id="mysidebar" style="z-index: 1000000">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img id="user-bg-sidebar" alt="" width="100%">
+                </div>
+                <a>
+                    <img class="circle" id="user-profile-sidebar">
+                </a>
+                <a style="background-color: black;">
+                    <span class="white-text username" id="side-username"></span>
+                </a>
+                <a style="background-color: black;">
+                    <span class="white-text email" id="side-email"></span>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a id="profile-sidenav">
+                <i class="material-icons">person</i>MY PROFILE</a>
+        </li>
+    </ul>
+    <!--END OF TOP-->
+    <!-- SEARCH MODAL -->
+    <div class="modal" id="search-modal" style="width:100%; height: 100%;">
+        <div class="modal-content">
+            <div id="modal-div">
+                <input type="text" placeholder="Type your keyword..." id="search-input">
+                <h6 class="left-align">SEARCH RESULTS</h6>
+                <hr/>
+                <div class="collection" id="search-results">
+                    <!--search list here-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// SEARCH MODAL -->
+    
+    <!--MOST LIKED VIDEOS-->
+    <div class="container left-align">
+        <h5 class="left-align"><span style="border-bottom: 2px solid red;">MOST LIKED VIDEO</span></h5>
+        <video id="myvideos" controls style="width: 100%; height: auto; border-radius: 10px;">
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+    <!--// MOST LIKED VIDEOS-->
+    <br>
+    <br>
+    <br>
+    <hr/>
+    <!--RANDOM VIDEOS-->
+    <h3 class="right-align" style="margin-right: 10%;"><span style="border-bottom: 4px solid red;">RANDOM VIDEOS</span></h3>
+    <div class="col s12 m2 container mostpopular">
+        <h4 class="header" id="recent-video-title1">Title of the video</h4>
+        <div class="card horizontal">
+            <div class="card-image">
+                <video src="" id="recent-video-video1" type="video/mp4" controls style="width: 100%;"></video>
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p id="recent-video-desc1">I am a very simple card. I am good at containing small bits of information.</p>
+                    <br/>
+
+                    <p id="username1" class="center-align" style="font-weight: bold;"></p>
+                </div>
+                <div class="card-action center-align">
+                    <a id="recent-video-link1" class="indigo-text">GO TO THE VIDEO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m2 container mostpopular">
+        <h4 class="header" id="recent-video-title2">Title of the video</h4>
+        <div class="card horizontal">
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p id="recent-video-desc2">I am a very simple card. I am good at containing small bits of information.</p>
+                    <br/>
+
+                    <p id="username2" class="center-align" style="font-weight: bold;"></p>
+                </div>
+                <div class="card-action center-align">
+                    <a id="recent-video-link2" class="indigo-text">GO TO THE VIDEO</a>
+                </div>
+            </div>
+            <div class="card-image">
+                <video id="recent-video-video2" controls type="video/mp4" style="width: 100%;"></video>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m2 container mostpopular">
+        <h4 class="header" id="recent-video-title3">Title of the video</h4>
+        <div class="card horizontal">
+            <div class="card-image">
+                <video id="recent-video-video3" controls type="video/mp4" style="width: 100%;"></video>
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p id="recent-video-desc3">I am a very simple card. I am good at containing small bits of information.</p>
+                    <br/>
+                    <p id="username3" class="center-align" style="font-weight: bold;"></p>
+                </div>
+                <div class="card-action center-align">
+                    <a id="recent-video-link3" class="indigo-text">GO TO THE VIDEO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// RANDOM VIDEOS-->
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+
+    <!--UPLOAD BUTTON -->
+    <div class="container">
+        <!--data-margin="20" data-position="left" data-delay="40" data-tooltip="UPLOAD A VIDEO!"-->
+        <a class="btn-floating btn-large red waves-effect waves-light modal-trigger tooltipped upload-btn" href="#uploadfile-modal"
+            style="position: fixed;">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+    <!--//UPLOAD BUTTON -->
+
+    <!--UPLOAD FILE MODAL-->
+    <div id="uploadfile-modal" class="modal">
+        <div class="center-align container">
+            <div class="row modal-content">
+                <h4 id="upload-title">UPLOAD YOUR VIDEO!</h4>
+                <div class="row">
+                    <!--s12 m4 l8-->
+                    <input type="text" id="title" data-length="25">
+                    <label for="title">Title of the video</label>
+                </div>
+                <div class="row">
+                    <textarea type="text" id="description" class="materialize-textarea"></textarea>
+                    <label for="description">Description of your video</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="select-tag">
+                            <option value="1" id="op1">Music</option>
+                            <option value="2" id="op2">Informatics</option>
+                            <option value="3" id="op3">Medicine</option>
+                            <option value="4" id="op4">Food</option>
+                            <option value="5" id="op5">Gamming</option>
+                            <option value="6" id="op6">Programming</option>
+                            <option value="7" id="op7">Ecology</option>
+                            <option value="8" id="op8">Tech</option>
+                            <option value="9" id="op9">Engineering</option>
+                            <option value="10" id="op10">Marketing</option>
+                        </select>
+                        <label>Categorize your video!</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="file" id="file" class="file-field input-field">
+                    <br>
+                </div>
+                <div class="row">
+                    <a class="btn green waves-effect waves-light" id="upload-btn">UPLOAD FILE</a>
+                </div>
+                <!--ROW-->
+                <div class="progress" style="display: none;" id="myprogressbar">
+                    <div class="indeterminate"></div>
+                </div>
+            </div>
+            <!--modal content-->
+        </div>
+    </div>
+    <!--//UPLOAD FILE MODAL-->
+    <hr/>
+
+    <!-- PRE LOADER -->
+    <div id="modal-preloader" class="modal modalpreloader transparent z-depth-0">
+        <div class="modal-content center-align" style="margin-top: 45%; margin-bottom: 5%;">
+            <div class="preloader-wrapper big active center-align" id="preloader">
+                <div class="spinner-layer spinner-blue-only center-align">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // PRE LOADER -->
+
+    <!-- FOOTER -->
+    <div class="" id="myfooter">
+        <div class="row center-align">
+            <div class="col s4">
+                <p style="padding: 6px;">LUIS CASTILLO</p>
+            </div>
+            <div class="col s4">
+                <div style="margin-top: 10px;">
+                    <!-- Social Network Icons -->
+                </div>
+            </div>
+            <div class="col s4">
+                <p style="padding: 6px;">VENEZUELA</p>
+            </div>
+        </div>
+    </div>
+    <!--// FOOTER -->
+    <script src="../scripts/jquery.js"></script>
+    <script src="../materialize/js/materialize.js"></script>
+    <script src="../scripts/xhrConnection.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/main-design.js"></script>
+    <script src="../scripts/more/scrollreveal.js"></script>
+    <script>
+        $(document).ready(() => {
+            console.log("ADMIN?"+localStorage.getItem("isadmin"));
+            localStorage.removeItem("helperid");
+            preloader(4000,true,"myvideos");            
+            if(localStorage.getItem("username")==null){
+                $$("user-a").innerHTML = "LOG IN";
+                $$("user-a").href = "../index.html";
+                $$("logout-a").innerHTML = "SIGN UP!";
+                $$("logout-a").href = "../index.html";
+                $$("sidebar-btn").style.display = "none";
+                $(".upload-btn").css("display","none");
+                getVideos(true);
+            }else{
+                console.log("mylocalshit->" + localStorage.getItem("username"));
+                $$("user-a").innerHTML = localStorage.getItem("username");
+                $$("user-a").href = "user-profile.html?id=" + localStorage.getItem("id");
+                $$("profile-sidenav").href = "user-profile.html?id=" + localStorage.getItem(
+                "id");                
+                dataSideBar();
+                initSideNav();
+                getVideos(false);
+            }
+            $('select').formSelect();
+            scroll(".mostpopular",800);
+            showMostLiked();
+            getVideoList();  //search
+            searchAction();
+        });
+
+        const $$ = (id) => document.getElementById(id);
+        
+        const initSideNav = () => $(".sidenav").sidenav();
+
+        const scroll = (element,time) => {
+            window.sr = ScrollReveal();
+            sr.reveal(element, {duration: time});
+        }
+
+    </script>
+</body>
+
+</html>

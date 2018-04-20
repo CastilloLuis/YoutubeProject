@@ -1,22 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>INDEX TEST</title>
+    <title>TrippyTube</title>
     <!--MATERIALIZE CSS-->
     <link rel="stylesheet" href="materialize/css/materialize.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/material-icons.css">
+    <!--<script defer src="scripts/more/fontawesome-all.js"></script>-->
 </head>
-<body>
-    <div class="center-align">
-        <h1>INDEX TEST</h1>
-        <a class="btn blue darken-2 waves-effect waves-light" href="login.html">LOGIN</a>
-        <a class="btn light-blue lighten-4 waves-effect waves-light" href="signup.html">SIGN UP</a>
-        <br><br><br>
-        <a href="user/page1.html">PAGINA 1 (ONLY REGISTERED USERS)</a> <br/>
-        <a href="user/page2.html">PAGINA 2 (ONLY REGISTERED USERS)</a>
+
+<body id="home-bg">
+    <div id="user-navbar" class="">
+        <h6 style="position: fixed; padding: 5px 20px; font-size: 20px; font-weight:bold;"><i class="material-icons left">filter_hdr</i>TRIPPY TUBE</h6>
+        <ul class="right-align">
+            <li>
+                <a onclick="" id="" class="modal-trigger" data-target="modal-login">LOG IN
+                    <i class="material-icons right">input</i>
+                </a>
+                <li>
+                    <a onclick="" id="" class="modal-trigger" data-target="modal-signup">SIGN UP
+                        <i class="material-icons right">present_to_all</i>
+                    </a>
+                </li>
+        </ul>
     </div>
+    <br/>
+
+    <div class="container center-align" id="homepage">
+        <h1 class="rainbow white-text home-title">TRIPPYTUBE</h1>
+        <h5 class="white-text" style="font-weight: 700; -webkit-text-stroke: 1px black;">SHOW MORE, TALK LESS</h5>
+        <br/>
+        <br/>
+        <a href="signup.html" class="btn blue waves-effect waves-light home-btn modal-trigger" data-target="modal-signup">SIGN UP!!</a>
+        <a href="user/user-index.html" class="btn red darken-2 waves-effect waves-light home-btn">JUST VISIT</a>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <!--USERS LOG IN-->
+    <div class="modal center-align action-div container" style="width: 30%;" id="modal-login">
+        <div id="login-div">
+            <h4 style="padding: 30px 30px; font-weight: 500;">
+                <i class="material-icons prefix">lock</i>Log in</h4>
+            <i class="material-icons login-icons">music_video</i>
+            <i class="material-icons login-icons">movie</i>
+            <i class="material-icons login-icons">music_note</i>
+        </div>
+        <br/>
+        <div class="row container">
+            <div class="input-field">
+                <i class="material-icons prefix left">account_box</i>
+                <input type="text" id="username" class="login-form">
+                <label for="username">Username</label>
+            </div>
+        </div>
+        <div class="row container">
+            <div class="input-field">
+                <i class="material-icons prefix left">lock</i>
+                <input type="password" id="password" class="login-form">
+                <label for="password">Password</label>
+                <p class="right-align">Forgot
+                    <a href="#" style="font-weight: bold;">password?</a>
+                </p>
+            </div>
+        </div>
+        <div style="display: inline-block">
+            <a id="login-btn" class="btn green waves-effect left-align" style="border-radius: 50px; width: 80%">
+                <span style="padding: 10px 10px;">LOGIN</span>
+            </a>
+            <br/>
+            <br/>
+            <p class="right-align">Don't have an account?
+                <a style="font-weight: bold;" class="modal-trigger" data-target="modal-signup">Sign up!</a>
+            </p>
+        </div>
+        <br/>
+        <br/>
+    </div>
+    <!--// USERS LOG IN-->
+
+    <!-- USERS SIGN UP -->
+    <div class="modal center-align action-div" width="110%;" id="modal-signup">
+        <div class="" style="width: 100%;">
+            <div id="signup-div" class="center-align">
+                <h4 style="padding: 30px 30px; font-weight: 500;">
+                    <i class="material-icons prefix">input</i> Sign Up</h4>
+                <i class="material-icons login-icons">music_video</i>
+                <i class="material-icons login-icons">movie</i>
+                <i class="material-icons login-icons">music_note</i>
+            </div>
+            <div class="center-align">
+                <center><i class="material-icons indigo-text" style="font-size: 150px;">account_circle</i></center>
+                <input type="file" id="myfile" class="signup-form">
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <div class="input-field">
+                        <i class="material-icons prefix left">person</i>
+                        <input type="text" class="form-control signup-form" id="name">
+                        <label for="name">NAME</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix left">person_outline</i>
+                        <input type="text" class="form-control signup-form" id="lastname">
+                        <label for="name">LASTNAME</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix left">email</i>
+                        <input type="text" class="form-control signup-form" id="email">
+                        <label for="name">E-MAIL</label>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="input-field">
+                        <i class="material-icons prefix left">account_circle</i>
+                        <input type="text" class="form-control signup-form" id="usernamesignup">
+                        <label for="name">USERNAME</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix">lock</i>
+                        <input type="password" class="form-control signup-form" id="passwordsignup">
+                        <label for="password">PASSWORD</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix">create</i>
+                        <textarea type="text" class="materialize-textarea signup-form" id="bio"></textarea>
+                        <label for="bio">BIOGRAPHY</label>
+                    </div>
+                </div>
+            </div>
+            <div class="center-align">
+                <a id="signup-btn" class="btn indigo waves-effect waves-light">SIGN UP</a>
+            </div>
+            <div class="right-align" style="padding: 4% 4%;">
+                <p>Do you already have an account?
+                    <a style="font-weight: bold;" class="modal-trigger" data-target="modal-login">Log in!</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- // USERS SIGN UP -->
+    <!-- FOOTER -->
+    <div class="" id="myfooter">
+        <div class="row center-align">
+            <div class="col s4">
+                <p style="padding: 6px;">LUIS CASTILLO</p>
+            </div>
+            <div class="col s4">
+                <div style="margin-top: 10px;">
+                    <!-- social networks icons -->
+                </div>
+            </div>
+            <div class="col s4">
+                <p style="padding: 6px;">VENEZUELA</p>
+            </div>
+        </div>
+    </div>
+    <!--// FOOTER -->
+
     <script src="scripts/jquery.js"></script>
     <script src="materialize/js/materialize.js"></script>
+    <script src="scripts/xhrConnection.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/more/scrollreveal.js"></script>
+    
+    <script>
+        $(document).ready(() => {
+            $('.tabs').tabs();
+            $('.modal').modal({
+                opacity: 0.2
+            });
+            window.sr = ScrollReveal();
+            sr.reveal("#homepage", {duration: 1000});
+        });
+    </script>
 </body>
+
 </html>

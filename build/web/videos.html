@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>INDEX TEST</title>
+    <!--MATERIALIZE CSS-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="materialize/css/materialize.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/material-icons.css">
+    <!-- LAST VERSION -->
+</head>
+
+<body>
+    <div id="user-navbar" class="">
+        <ul class="right-align">
+            <li><a id="user-a"></a><i class="material-icons right">account_circle</i></li>
+            <li><a href="../LogOut" id="logout-a">LOG OUT<i class="material-icons right">exit_to_app</i></a></li>
+        </ul>
+    </div><br/><br/><br/><br/>
+
+    <!-- menu for side nav bar -->
+    <a href="#" data-target="slide-out" class="sidenav-trigger" style="position: fixed"><i class="material-icons" style="display: inline-block; position: absolute; font-size: 40px;">menu</i></a>
+    <!-- //menu for side nav bar -->
+
+    <!-- search div-->
+    <div class="search-div container" style="width: 50%">
+        <input type="text" class="col s6" id="mysearch" placeholder="Search filter">
+        <i class="material-icons right">search</i>
+    </div><br/>
+    <!-- //search div -->
+    <!-- nav bar -->
+    <ul id="slide-out" class="sidenav" style="z-index: 1000000;">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="C:\Users\lenri\Desktop\uRu\wallpaper1.jpg" alt="">
+                </div>
+                <a><img src="C:\Users\lenri\Desktop\uRu\nn.jpg" class="circle"></a>
+                <a><span class="white-text name">USERNAME</span></a>
+                <a><span class="white-text email">MYEMAIL</span></a>
+            </div>
+        </li>
+    </ul>
+    <!--END OF TOP-->
+
+    <!--SELECTED VIDEO-->
+    <div class="">
+        <div class="row">
+            <div class="col s1"><pre> </pre></div>
+            <div class="col s8 center-align">
+                <h5 class="left-align">TITLE OF THE VIDEO - TITLE OF THE VIDEO</h5>
+                <video id="myvideos" controls style="width: 100%; height: auto; border-radius: 10px;">
+                    <source src="C:\Users\lenri\Desktop\VIRTUAL\VIRTUAL.EC\video\bg.mp4" type="video/mp4">
+                </video>
+                
+                <p class="left"><i class="material-icons left" id="fav-icon">favorite</i>55</p>
+                <p class="left" style="margin-left: 2%;"><i class="material-icons left" id="home-comment-icon">comment</i>20</p>
+                <p class="right" style="font-weight: bold; letter-spacing: 2px;"><span id="myviews" style="margin-right: 20px;">221.166</span>VIEWS</p>
+                <br/><br/>
+                <div class="card horizontal">
+                    <img src="C:\Users\lenri\Desktop\uRu\wallpaper1.jpg" id="user-comment-img" style="width: 100px; height: 50%; margin-top: 40px;" class="circle">
+                    <div class="card-stacked">
+                        <div class="card-content left-align">
+                            <p>USERNAME</p>
+                            <p>Date: 05/05/2018</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aliquid possimus esse iure ex, harum fugiat reprehenderit voluptates quam deleniti omnis repellendus nobis</p>
+                        </div>
+                    </div>
+                </div>              
+                
+                
+                
+                
+                
+                <!--personal comments section-->
+                <div class="comments-section" id="home-comment-sec" style="width: 100%; margin-top: 4%; display: none;">
+                    <div class="input-field">
+                        <i class="material-icons prefix">comment</i>
+                        <textarea class="materialize-textarea" placeholder="Comment here"></textarea>
+                        <a href="#" class="btn teal lighten-2 right">SEND<i class="material-icons right">send</i></a>
+                    </div>
+                </div>
+                <!--//personal comments section-->
+            </div><!--//second col-->
+            
+            <!--RIGHT VIDEOS LIST-->
+            <div class="col s3">
+                <h5>RECOMMENDS</h5>
+                <!--third col-->
+                <div class="card" style="border-radius: 10px;">
+                    <div class="card-content center-align">
+                        <img src="C:\Users\lenri\Desktop\uRu\wallpaper1.jpg" style="width: 100%;">
+                        <p>TITLE OF THE VIDEO - TITLE OF THE VIDEO</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <!--//third col-->
+        </div><!--//RIGHT VIDEOS LIST-->
+        <br/>
+        <!--//SELECTED VIDEO-->
+
+        <!--GENERAL COMMENTS SECTION-->
+        <div class="" style="width: 65%; height: 10%; margin-left: 10%;">
+            <h5 class="left-align">COMMENTS SECTION</h5><hr/>
+            <br/>
+            <div class="card horizontal">
+                <img src="C:\Users\lenri\Desktop\uRu\wallpaper1.jpg" id="user-comment-img" style="width: 50px; height: 50%" class="circle">
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aliquid possimus esse iure ex, harum fugiat reprehenderit voluptates quam deleniti omnis repellendus nobis</p>
+                    </div>
+                    <div class="">
+                        <p>username - username</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//GENERAL COMMENTS SECTION-->
+
+    <script src="scripts/jquery.js"></script>
+    <script src="materialize/js/materialize.js"></script>
+    <script src="scripts/xhrConnection.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/main-design.js"></script>
+    <script>
+        $(document).ready(() => {
+            var url = new URL(window.location.href);
+            var user = url.searchParams.get("user");
+            //window.history.replaceState({},'user','myprofile');
+            document.getElementById("user-a").innerHTML = user;
+            initSideNav();
+            //mytooltip();
+        });
+
+        function initSideNav() {
+            $(".sidenav").sidenav()
+        }
+    </script>
+</body>
+
+</html>

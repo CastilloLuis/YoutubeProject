@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>INDEX TEST</title>
+    <!--MATERIALIZE CSS-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../materialize/css/materialize.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/material-icons.css">
+    <!-- LAST VERSION -->
+</head>
+
+<body id="myprofile" style="overflow: hidden;">
+    <!--NAV BAR-->
+    <div id="user-navbar" class="">
+        <h6 style="position: fixed; padding: 10px 60px; font-size: 20px; font-weight:bold;" class="cyan darken-1"><i class="material-icons left">filter_hdr</i>TRIPPY TUBE</h6>
+        <ul class="right-align">
+            <li>
+                <a href="user-index.html" class="btn indigo left-align waves-effect waves-light">GO BACK</a>
+            </li>
+            <li>
+                <a id="user-a"></a>
+                <i class="material-icons right">account_circle</i>
+            </li>
+            <li>
+                <a onclick="logout()" id="logout-a">LOG OUT
+                    <i class="material-icons right">exit_to_app</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <!--END OF NAVBAR && TOP-->
+
+    <!--PROFILE CARD-->
+    <div id="profile-card" style="width: 30%; margin: 0 auto; margin-top: 6%;">
+        <div class="card">
+            <div class="card-image">
+                <img id="user-profile-picture">
+                <span class="card-title" id="name" style="background-color: black; opacity: 0.8; border-radius: 10px;"></span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red" id="edit-profile">
+                    <i class="material-icons">create</i>
+                </a>
+            </div>
+            <div class="card-content">
+                <span style="font-weight: bold;">Username:</span>
+                <p id="username"></p>
+                <br/>
+                <span style="font-weight: bold;">E-mail:</span>
+                <p id="email"></p>
+                <br/>
+                <span style="font-weight: bold;">Biography: </span>:
+                <textarea class="profile-form" id="bio" cols="30" rows="10" style="margin-bottom: 50px; resize: none;"></textarea>
+
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <a href="#" class="btn red darken-3 waves-effect waves-light" id="my-videos-btn">MY VIDEOS</a>
+                    </div>
+                </div>
+                <center>
+                    <a class="btn red waves-effect waves-light" style="display: none;" id="save-changes">SAVE CHANGES</a>
+                </center>
+                <br/>
+            </div>
+        </div>
+    </div>
+    <!--// PROFILE CARD-->
+
+    <!--MY VIDEOS-->
+    <div class="" id="my-videos-div" style="display: none;">
+        <div id="my-videos">
+            <br/>
+            <a href="#" class="btn indigo waves-effect waves-light back-profile-btn" style="margin-left: 25px;">BACK TO PROFILE</a>
+            <h2 class="center-align">MY VIDEOS</h2>
+            <div class="row" id="externaldiv">
+            </div>
+        </div>
+    </div>
+    <!--// MY VIDEOS-->
+
+    <!-- PRE LOADER -->
+    <div id="modal-preloader" class="modal modalpreloader transparent z-depth-0">
+        <div class="modal-content small center-align" style="margin-top: 45%; margin-bottom: 5%;">
+            <div class="preloader-wrapper active center-align" id="preloader">
+                <div class="spinner-layer spinner-red-only center-align">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // PRE LOADER -->
+
+
+    <script src="../scripts/jquery.js"></script>
+    <script src="../materialize/js/materialize.js"></script>
+    <script src="../scripts/xhrConnection.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/main-design.js"></script>
+    <script>
+        $(document).ready(() => {
+            preloader(4000,false,null);
+            document.getElementById("user-a").innerHTML = localStorage.getItem("username");
+            userData();
+            userVideos();
+            updateUser();
+        });
+    </script>
+</body>
+
+</html>
